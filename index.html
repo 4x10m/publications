@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Notes — 4x10m</title>
+<meta name="description" content="Notes sur des systèmes qui tiennent, et sur ceux qui n'ont jamais été vus.">
+<style>
+:root{--fg:#1c1c1e;--bg:#fff;--muted:#6b6b70;--line:#e3e3e6;--accent:#0b5fff}
+@media(prefers-color-scheme:dark){:root{--fg:#e8e8ea;--bg:#111114;--muted:#9a9aa0;--line:#2a2a2f;--accent:#7aa7ff}}
+*{box-sizing:border-box}
+body{margin:0 auto;padding:3rem 1.25rem 6rem;max-width:44rem;background:var(--bg);color:var(--fg);
+font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif}
+h1,h2,h3,h4{line-height:1.25;margin:2.4rem 0 .8rem;font-weight:650;letter-spacing:-.01em}
+h1{margin-top:0;font-size:2rem}h2{font-size:1.35rem;padding-bottom:.3rem;border-bottom:1px solid var(--line)}
+h3{font-size:1.1rem}
+p{margin:1rem 0}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+code{font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(127,127,127,.13);
+padding:.12em .35em;border-radius:4px}
+pre{background:rgba(127,127,127,.1);padding:1rem;border-radius:8px;overflow-x:auto}
+pre code{background:none;padding:0}
+table{border-collapse:collapse;width:100%;margin:1.4rem 0;font-size:.94em}
+th,td{text-align:left;padding:.5rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:650}
+blockquote{margin:1.4rem 0;padding:.2rem 0 .2rem 1.1rem;border-left:3px solid var(--line);
+color:var(--muted)}
+hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
+footer{margin-top:4rem;padding-top:1.2rem;border-top:1px solid var(--line);
+color:var(--muted);font-size:.86rem}
+ul,ol{padding-left:1.3rem}
+</style>
+</head>
+<body>
+<h1>Notes</h1>
+<p>Écritures sur ce que je construis, et sur ce que je n'ai jamais montré.</p>
+<p>Quand une idée n'est pas étayée par une mesure qu'un tiers peut refaire, elle est marquée comme<br>
+hypothèse et elle est publiée comme telle — ou pas publiée du tout.</p>
+<h2>Articles</h2>
+<ul>
+<li><strong><a href="posts/2026-09-28-audit-709-commits.html">J'ai compté mes commits. Le ratio m'a déplu.</a></strong> —<br>
+2026-09-28. Un audit de 709 commits sur 74 dépôts. Le chiffre qui compte n'est pas 709, c'est<br>
+2 sur 58 : le nombre de dépôts qui portent une licence.</li>
+<li><strong><a href="posts/2026-09-28-valeur-ajoutee-alignement.html">« Valeur ajoutée, alignement »</a></strong> — 2026-09-28.<br>
+Deux critères pour décider si une automatisation est terminée. Le troisième cas, celui où ils se<br>
+contredisent, je ne l'ai pas encore écrit.</li>
+</ul>
+<h2>Sur la méthode</h2>
+<p>Les chiffres viennent de deux choses, toutes deux reproductibles :</p>
+<ul>
+<li>un audit qui parcourt l'historique git et compte les dépôts, les README et les licences ;</li>
+<li>un script d'une centaine de lignes qui lit <code class="notranslate">git log --all --format='%an &lt;%ae&gt;'</code> et signale les<br>
+identités abandonnées.</li>
+</ul>
+<p>Quand un chiffre n'est pas vérifiable par un tiers, il n'est pas dans le texte. Il est écrit<br>
+comme une hypothèse, et étiqueté comme tel.</p>
+<h2>Sur le nom</h2>
+<p>Je publie sous <code class="notranslate">4x10m</code>, qui est mon vrai compte GitHub. Mon nom civil apparaît dans l'historique<br>
+de certains dépôts, et j'ai décidé de ne pas réécrire cet historique. La raison est dans le<br>
+premier article : un historique scrubé est une affirmation, et une affirmation s'entretient à<br>
+jamais. Le mien dit ce qui s'est réellement passé.</p>
+<h2>Licence</h2>
+<p>CC BY-SA 4.0. Je peux réutiliser vos citations, à condition de me citer et de partager la même<br>
+licence. Pour du code, ce dépôt n'en contient pas.</p>
+<footer><a href="/publications/">← Toutes les notes</a> · CC BY-SA 4.0</footer>
+</body>
+</html>

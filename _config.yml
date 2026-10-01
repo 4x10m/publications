@@ -1,6 +1,0 @@
-title: 4x10m
-description: Notes sur des systèmes qui tiennent, et sur ceux qui n'ont jamais été vus.
-markdown: kramdown
-permalink: /:basename/
-exclude:
-  - LICENSE

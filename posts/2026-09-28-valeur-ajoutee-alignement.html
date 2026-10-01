@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>« Valeur ajoutée, alignement » — la règle que je n'ai pas encore appliquée partout</title>
+<meta name="description" content="Notes sur des systèmes qui tiennent, et sur ceux qui n'ont jamais été vus.">
+<style>
+:root{--fg:#1c1c1e;--bg:#fff;--muted:#6b6b70;--line:#e3e3e6;--accent:#0b5fff}
+@media(prefers-color-scheme:dark){:root{--fg:#e8e8ea;--bg:#111114;--muted:#9a9aa0;--line:#2a2a2f;--accent:#7aa7ff}}
+*{box-sizing:border-box}
+body{margin:0 auto;padding:3rem 1.25rem 6rem;max-width:44rem;background:var(--bg);color:var(--fg);
+font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif}
+h1,h2,h3,h4{line-height:1.25;margin:2.4rem 0 .8rem;font-weight:650;letter-spacing:-.01em}
+h1{margin-top:0;font-size:2rem}h2{font-size:1.35rem;padding-bottom:.3rem;border-bottom:1px solid var(--line)}
+h3{font-size:1.1rem}
+p{margin:1rem 0}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+code{font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(127,127,127,.13);
+padding:.12em .35em;border-radius:4px}
+pre{background:rgba(127,127,127,.1);padding:1rem;border-radius:8px;overflow-x:auto}
+pre code{background:none;padding:0}
+table{border-collapse:collapse;width:100%;margin:1.4rem 0;font-size:.94em}
+th,td{text-align:left;padding:.5rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:650}
+blockquote{margin:1.4rem 0;padding:.2rem 0 .2rem 1.1rem;border-left:3px solid var(--line);
+color:var(--muted)}
+hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
+footer{margin-top:4rem;padding-top:1.2rem;border-top:1px solid var(--line);
+color:var(--muted);font-size:.86rem}
+ul,ol{padding-left:1.3rem}
+</style>
+</head>
+<body>
+<hr>
+<h2>layout: null<br>
+title: "« Valeur ajoutée, alignement » — la règle que je n'ai pas encore appliquée partout"<br>
+date: 2026-09-28</h2>
+<p>[OPINION] J'aime automatiser. C'est écrit dans mes notes depuis des années, et c'est vrai.</p>
+<p>En même temps je crois que l'automatisation mal bornée ne supprime pas le travail, elle le déplace.<br>
+Les deux propositions sont dans le même cerveau, et pendant des années je n'ai pas su comment<br>
+elles tenaient ensemble. Cette semaine, j'ai trouvé deux mots.</p>
+<blockquote>
+<p><strong>Valeur ajoutée, alignement.</strong></p>
+</blockquote>
+<p>C'est ma règle de décision maintenant. Elle tient en une ligne, ce qui est la seule qualité<br>
+honnête qu'une règle puisse avoir.</p>
+<h2>Les deux critères ne regardent pas la même chose</h2>
+<p>C'est contre-intuitif, et c'est tout le contenu de la règle.</p>
+<table role="table">
+<thead>
+<tr>
+<th>Critère</th>
+<th>Ce qu'il juge</th>
+<th>La question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Valeur ajoutée</strong></td>
+<td>le <em>résultat</em></td>
+<td>« Est-ce que ça m'a fait gagner quelque chose ? »</td>
+</tr>
+<tr>
+<td><strong>Alignement</strong></td>
+<td>la <em>décision</em></td>
+<td>« Est-ce que j'ai décidé ça, ou est-ce que ça l'a décidé à ma place ? »</td>
+</tr>
+</tbody>
+</table>
+<p>Un seul critère ne suffit pas, et c'est facile à vérifier :</p>
+<p>« Ça marche » peut produire un résultat que je ne voulais pas. Un script qui nettoie le mauvais<br>
+dossier, ça marche. C'est aligné avec rien.</p>
+<p>« C'est ce que j'ai demandé » peut produire un résultat inutile. « Automatise-moi le déploiement »<br>
+et un déploiement que personne ne déploie est exactement ce que j'ai demandé.</p>
+<p>Les deux ensemble, ça commence à morser : le résultat doit être bon, et la décision doit être<br>
+la mienne.</p>
+<h2>Le cas où les deux se contredisent — et je ne l'ai pas résolu</h2>
+<blockquote>
+<p>[HYPOTHÈSE] Ce qui suit est un cas que je crois possible. Je n'ai pas d'exemple à l'appui.</p>
+</blockquote>
+<p>Voilà ce que ces deux mots ne règlent pas.</p>
+<p>Le résultat est bon. La décision n'est pas la mienne. Ça arrive, et c'est le cas le plus<br>
+dangereux d'une automatisation, précisément parce qu'elle a l'air de marcher.</p>
+<p>Un script qui nettoie le mauvais dossier : je gagne du temps — <strong>valeur ajoutée</strong> — et l'intention<br>
+dérive — <strong>pas d'alignement</strong>. Les deux critères sont satisfaits et le résultat est mauvais.</p>
+<p>C'est exactement la situation de l'infrastructure « souverain » : personne ne la conteste parce<br>
+qu'elle marche, et personne ne l'a vraiment décidée parce que personne n'a eu à choisir.</p>
+<p>Je n'ai pas d'exemple à donner. C'est la partie que je n'ai pas encore écrite : <strong>un vrai cas où<br>
+les deux critères sont entrés en conflit, et ce que j'ai fait.</strong> Tant que je ne l'ai pas, cette<br>
+règle est une graine, pas une position. Une graine que j'ai laissée pousser toute seule deviendrait<br>
+ma position publique sans avoir été ma pensée, et ce serait une fraude — pas grave, mais exacte.</p>
+<h2>Ce que je propose</h2>
+<p>Si vous automatisez beaucoup aussi : essayez les deux critères séparément pendant une semaine.<br>
+Pas « est-ce que ça a marché », et « est-ce que je l'ai voulu » — mais l'un <strong>puis</strong> l'autre,<br>
+parce qu'ils ne répondent pas à la même question.</p>
+<p>Et si vous trouvez un cas où ça ne marche pas — c'est-à-dire un cas où le résultat est bon et la<br>
+décision n'est pas la vôtre — j'aimerais vraiment le lire. C'est la partie de ma règle qui<br>
+n'existe pas encore, et elle ne s'écrira pas seul.</p>
+<h2>Ce que je n'affirme pas</h2>
+<ul>
+<li>Que cette règle est bonne. Je l'ai formulée il y a quelques jours, et je n'ai pas encore<br>
+de données.</li>
+<li>Que « l'automatisation déplace la fatigue » est démontré. C'est une intuition que je tiens<br>
+depuis longtemps et que je n'ai jamais mesurée.</li>
+<li>Que quelqu'un d'autre devrait adopter ces deux mots. Ils m'appartiennent, ils ne sont pas un<br>
+standard.</li>
+</ul>
+<h2>Sources</h2>
+<ul>
+<li>La règle « valeur ajoutée, alignement » : formulation de l'auteur, 2026-09-28. C'est la seule<br>
+chose que je n'ai pas tirée d'ailleurs.</li>
+<li>« J'aime automatiser » : notes personnelles, <code class="notranslate">Profil de l'utilisateur</code>.</li>
+<li>Aucune source externe. Cet article ne s'appuie sur aucun travail publié sur le sujet — c'est un<br>
+point de départ, pas une revue.</li>
+</ul>
+<footer><a href="/publications/">← Toutes les notes</a> · CC BY-SA 4.0</footer>
+</body>
+</html>

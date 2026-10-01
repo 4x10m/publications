@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>J'ai compté mes commits. Le ratio m'a déplu.</title>
+<meta name="description" content="Notes sur des systèmes qui tiennent, et sur ceux qui n'ont jamais été vus.">
+<style>
+:root{--fg:#1c1c1e;--bg:#fff;--muted:#6b6b70;--line:#e3e3e6;--accent:#0b5fff}
+@media(prefers-color-scheme:dark){:root{--fg:#e8e8ea;--bg:#111114;--muted:#9a9aa0;--line:#2a2a2f;--accent:#7aa7ff}}
+*{box-sizing:border-box}
+body{margin:0 auto;padding:3rem 1.25rem 6rem;max-width:44rem;background:var(--bg);color:var(--fg);
+font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif}
+h1,h2,h3,h4{line-height:1.25;margin:2.4rem 0 .8rem;font-weight:650;letter-spacing:-.01em}
+h1{margin-top:0;font-size:2rem}h2{font-size:1.35rem;padding-bottom:.3rem;border-bottom:1px solid var(--line)}
+h3{font-size:1.1rem}
+p{margin:1rem 0}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+code{font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(127,127,127,.13);
+padding:.12em .35em;border-radius:4px}
+pre{background:rgba(127,127,127,.1);padding:1rem;border-radius:8px;overflow-x:auto}
+pre code{background:none;padding:0}
+table{border-collapse:collapse;width:100%;margin:1.4rem 0;font-size:.94em}
+th,td{text-align:left;padding:.5rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:650}
+blockquote{margin:1.4rem 0;padding:.2rem 0 .2rem 1.1rem;border-left:3px solid var(--line);
+color:var(--muted)}
+hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
+footer{margin-top:4rem;padding-top:1.2rem;border-top:1px solid var(--line);
+color:var(--muted);font-size:.86rem}
+ul,ol{padding-left:1.3rem}
+</style>
+</head>
+<body>
+<hr>
+<h2>layout: null<br>
+title: "J'ai compté mes commits. Le ratio m'a déplu."<br>
+date: 2026-09-28</h2>
+<p>J'allais écrire un article sur un sujet que je connais bien : le fait que je construis beaucoup.<br>
+Puis j'ai compté pour de vrai, et les chiffres ont dit autre chose.</p>
+<p>Donc voilà le compte.</p>
+<h2>[FAIT] Ce que le compte a trouvé</h2>
+<blockquote>
+<p>Source : <code class="notranslate">audit/2026-09-27-baseline.md</code> et <code class="notranslate">tools/audit-identite.sh</code>, tous reproductibles.</p>
+</blockquote>
+<table role="table">
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Période</td>
+<td>2026-01-06 → 2026-09-26, 75 jours actifs</td>
+</tr>
+<tr>
+<td>Commits (auteur seul)</td>
+<td><strong>709</strong></td>
+</tr>
+<tr>
+<td>Répertoires <code class="notranslate">.git</code> détectés</td>
+<td>96</td>
+</tr>
+<tr>
+<td>Dépôts autonomes</td>
+<td>74</td>
+</tr>
+<tr>
+<td>Dépôts 100 % originaux</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Dépôts avec un README</td>
+<td>37 / 58</td>
+</tr>
+<tr>
+<td>Dépôts avec une LICENSE</td>
+<td><strong>2 / 58</strong></td>
+</tr>
+<tr>
+<td>Commits vérifiables publiquement</td>
+<td><strong>0</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Où sont passés les 709 :</p>
+<table role="table">
+<thead>
+<tr>
+<th>Domaine</th>
+<th>Commits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shell / Bash / Zsh</td>
+<td>652</td>
+</tr>
+<tr>
+<td>CI/CD (Actions, Woodpecker, Forgejo)</td>
+<td>566</td>
+</tr>
+<tr>
+<td>Node / TypeScript</td>
+<td>554</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>383</td>
+</tr>
+<tr>
+<td>Docker / Compose</td>
+<td>328</td>
+</tr>
+<tr>
+<td>Routage LLM (LiteLLM, quotas, gateways)</td>
+<td>314</td>
+</tr>
+<tr>
+<td>Reverse-proxy / SSO (Caddy, Traefik, Authelia)</td>
+<td>219</td>
+</tr>
+<tr>
+<td>Agents / MCP / harnais</td>
+<td>206</td>
+</tr>
+<tr>
+<td>Backend / données (Postgres, SQLite, Redis)</td>
+<td>175</td>
+</tr>
+<tr>
+<td>Mesh / VPN (Tailscale)</td>
+<td>123</td>
+</tr>
+</tbody>
+</table>
+<p>Vous êtes en train de regarder 709 et de penser <em>impressionnant</em>. Moi aussi. C'est le piège, et ce<br>
+n'est pas une figure de style, c'est de l'arithmétique : <strong>709 commits que personne ne peut<br>
+vérifier valent exactement autant que zéro commits que personne ne peut vérifier.</strong> Le nombre<br>
+existe. La preuve, non.</p>
+<h2>[FAIT] Le vrai chiffre, c'est le 2 / 58</h2>
+<p>Un dépôt sans LICENSE n'est pas un projet libre. C'est un projet où l'auteur a gardé la décision<br>
+pour lui. Je retourne mon propre raisonnement contre moi, parce que c'est le seul qui soit vrai :</p>
+<p><strong>56 de mes 58 dépôts n'ont aucune licence.</strong> Concrètement : personne ne peut légalement les<br>
+utiliser, les forker, s'en servir pour apprendre, ou construire dessus. Ils existent sur ma<br>
+machine. Les 30 dépôts « originaux » — ceux qui sont vraiment les miens et pas un fork — sont<br>
+précisément ceux que personne ne peut toucher.</p>
+<p>J'aimerais vous sortir la conclusion intéressante. La conclusion intéressante, c'est : j'ai monté<br>
+un cabinet privé et je l'ai appelé une contribution open source, et la différence entre les deux<br>
+tient dans un fichier que je n'ai jamais écrit.</p>
+<h2>[FAIT] Ce que les objets git disent de moi</h2>
+<p>En comptant, j'ai lu les métadonnées d'auteur. 61 dépôts, toutes branches, auteur <strong>et</strong><br>
+committer — donc un même commit peut être compté deux fois, et c'est le cas ici.</p>
+<p><strong>935 lignes de comptage</strong> portent une identité que j'ai abandonné : un nom de machine Windows<br>
+(<code class="notranslate">DESKTOP-8FERO89\user</code>), un gmail personnel, une identité admin locale. <strong>34 commits</strong><br>
+portent mon nom civil, franchement, dans <code class="notranslate">sorting/dotfiles</code> — le dépôt que j'aurais publié en<br>
+premier, parce que les dotfiles sont la chose la plus publique qu'un développeur possède.</p>
+<p>Le script qui a trouvé ça fait 120 lignes de bash. Il lit deux chaînes de format :<br>
+<code class="notranslate">git log --all --format='%an &lt;%ae&gt;'</code>. C'est tout.</p>
+<p>Un fichier <code class="notranslate">.mailmap</code> aurait tout caché — sans rien changer. <code class="notranslate">mailmap</code> réécrit l'<strong>affichage</strong> ;<br>
+l'objet d'origine garde la chaîne d'origine, et reste lisible via l'API GitHub et dans n'importe<br>
+quel <code class="notranslate">.patch</code> téléchargé.</p>
+<p>Je publie sous <code class="notranslate">4x10m</code>, qui est mon vrai compte GitHub, et mon vrai nom est dans cet historique.<br>
+J'ai envisagé de le réécrire. J'ai décidé de ne pas le faire, et la raison vaut plus cher que<br>
+l'historique propre : <strong>un historique git scrubé est une affirmation, et une affirmation<br>
+s'entretient à jamais.</strong> Le mien dit ce qui s'est réellement passé.</p>
+<h2>[HYPOTHÈSE] De quoi c'est vraiment fait</h2>
+<p>Voilà ma lecture, et je la signale comme une lecture, pas comme un constat.</p>
+<p>Je ne pense pas avoir raté la publication. Je pense que <strong>la publication n'a jamais eu de prix<br>
+associé dans ma tête.</strong> Écrire du code a une condition de fin : ça compile, ou pas. Publier<br>
+n'en a pas. Publier a des <em>conséquences</em>, ce qui est une pression bien plus faible, et les<br>
+faibles pressions ne déplacent pas quelqu'un que de fortes pressions maintiennent en place.</p>
+<p>Le 2 / 58, c'est le même échec dans une boîte plus petite. Ne pas choisir de licence n'est pas<br>
+oublier. C'est une décision que je n'ai jamais prise, ce qui veut dire qu'elle est en attente,<br>
+pour toujours.</p>
+<p>Ma seule pièce à conviction : mes notes personnelles contiennent une règle qui dit <em>ne pas utiliser<br>
+<code class="notranslate">desktop</code> ni <code class="notranslate">user</code> comme nom</em>. Cette règle existe à cause de <code class="notranslate">DESKTOP-8FERO89\user</code> — elle est<br>
+sur 244 de mes commits d'auteur. La règle a été écrite. La conséquence est restée. L'option n'a<br>
+jamais eu lieu.</p>
+<p>Je n'ai pas de résolution. J'ai un script qui compte l'écart.</p>
+<h2>Ce que je n'affirme pas</h2>
+<ul>
+<li>Que 709 commits est un bon chiffre. Je ne sais pas ce que ça vaut, et vous non plus.</li>
+<li>Que j'ai été bloqué. Personne ne m'a bloqué. Il n'y a pas eu d'incident.</li>
+<li>Que le 2 / 58 est un accident. C'est peut-être une décision prise une fois et jamais revue.</li>
+<li>Que cet article corrige quoi que ce soit. C'est une mesure. Une mesure est la forme d'honnêteté<br>
+la moins chère, et la plus facile à confondre avec du courage.</li>
+</ul>
+<h2>Ce que j'aimerais vraiment défendre</h2>
+<p>Pas que tout le monde devrait publier. Que publier est <strong>un coût sans condition de fin visible</strong>,<br>
+et que les gens qui aiment construire — qui sont, par disposition, bons pour boucler des boucles<br>
+— vont systématiquement sous-estimer ce coût. Si ça tient, le correctif n'est pas la discipline.<br>
+C'est d'accrocher un vrai coût à la publication, comme la compilation en accroche un au code.</p>
+<p>J'aimerais qu'on me discute. Surtout : « pas de condition de fin visible », est-ce un vrai mécanisme,<br>
+ou est-ce que je m'invente une sociologie pour expliquer un problème d'agenda ? Si c'est la<br>
+seconde chose, je viens d'écrire une jolie histoire sur ma propre procrastination, et la version<br>
+honnête c'est que je n'en avais pas envie.</p>
+<h2>Sources</h2>
+<ul>
+<li><code class="notranslate">audit/2026-09-27-baseline.md</code> — les 709 commits, la répartition par domaine, les comptes<br>
+README / LICENSE.</li>
+<li><code class="notranslate">tools/audit-identite.sh</code> — les 935 commits portant une identité, reproductible par<br>
+<code class="notranslate">bash tools/audit-identite.sh &lt;dépôt&gt;</code>.</li>
+<li><code class="notranslate">api.github.com/users/4x10m</code> — date de création du compte, nombre de dépôts publics.</li>
+</ul>
+<footer><a href="/publications/">← Toutes les notes</a> · CC BY-SA 4.0</footer>
+</body>
+</html>
