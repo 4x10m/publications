@@ -72,9 +72,14 @@ rendre() {
   # construit à la main évite toute interpretation du markdown par le shell.
   local md="$1" titre="$2" out="$3"
   local corps
+  # Le frontmatter YAML ne doit PAS être envoyé à l'API : sans ligne vide après le
+  # second `---`, kramdown le lit comme un titre setext et le sert comme un `<h2>`.
+  # On enlève donc le bloc d'en-tête avant le rendu, et le titre est déjà récupéré à part.
   corps="$(python3 -c '
-import json,sys
-print(json.dumps({"mode":"gfm","text":open(sys.argv[1],encoding="utf-8").read()}))
+import json,re,sys
+t = open(sys.argv[1], encoding="utf-8").read()
+t = re.sub(r"\A---\r?\n.*?\r?\n---\r?\n", "", t, count=1, flags=re.S)
+print(json.dumps({"mode": "gfm", "text": t}))
 ' "$md" | gh api -X POST /markdown --input -)" || {
     echo "ECHEC rendu: $md" >&2; return 1; }
   [ -z "$corps" ] && { echo "ECHEC rendu (vide): $md" >&2; return 1; }
